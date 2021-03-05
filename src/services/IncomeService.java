@@ -36,7 +36,6 @@ public class IncomeService {
     public String toString() {
         Comparator<Income> valueComparator = new Comparator<Income>() {
             @Override
-
             public int compare(Income o1, Income o2) {
                 return o1.getValue().compareTo(o2.getValue());
             }
