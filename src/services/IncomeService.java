@@ -22,12 +22,12 @@ public class IncomeService {
     }
 
     private Float calculateAverage() {
-        return incomesList.isEmpty() ? 0.0f : calculateSum() / incomesList.size();
+        return incomesList.isEmpty() ? 0.0f : calculateSum(incomesList) / incomesList.size();
     }
 
-    private Float calculateSum() {
+    public Float calculateSum(ArrayList<Income> list) {
         float sum = 0.0f;
-        for (Income element: incomesList) {
+        for(Income element: list){
             sum += element.getValue();
         }
         return sum;

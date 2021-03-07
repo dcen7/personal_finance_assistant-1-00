@@ -14,7 +14,8 @@ public class Main {
         UI ui = new UI();
         IncomeService incomeService = new IncomeService();
         ExpenseService expenseService = new ExpenseService();
-        Income temp1 = new Income("Freelancing", 2000, LocalDateTime.of(2021,1,21,12,20,30));
+        Income temp1 = new Income("Freelancing", 2000, LocalDateTime.of(2021,3,21,12,20,30));
+        incomeService.insertIncome(temp1);
 
         do {
             System.out.println(ui.mainMenu());
@@ -62,6 +63,8 @@ public class Main {
                     break;
                 case 5:
                     System.out.println(incomeService.getIncomesOfGivenDate(LocalDateTime.now()));
+                    System.out.println("sum of your incomes for month: "+LocalDateTime.now().getMonth()+" - "
+                            + incomeService.calculateSum(incomeService.getIncomesOfGivenDate(LocalDateTime.now())));
                 default:
                     System.out.println("please use numbers between 1 and 4");
                     break;
