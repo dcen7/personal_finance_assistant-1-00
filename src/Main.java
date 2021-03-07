@@ -4,7 +4,7 @@ import services.ExpenseService;
 import services.IncomeService;
 import ui.UI;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +14,7 @@ public class Main {
         UI ui = new UI();
         IncomeService incomeService = new IncomeService();
         ExpenseService expenseService = new ExpenseService();
-        Date today = new Date();
+        Income temp1 = new Income("Freelancing", 2000, LocalDateTime.of(2021,1,21,12,20,30));
 
         do {
             System.out.println(ui.mainMenu());
@@ -30,7 +30,7 @@ public class Main {
                     if (incomeValue == -1 || incomeName.equals("-1"))
                         break;
 
-                    Income income = new Income(incomeName,incomeValue,System.currentTimeMillis());
+                    Income income = new Income(incomeName,incomeValue,LocalDateTime.now());
 
                     if (incomeService.insertIncome(income))
                         System.out.println("Your income recorded as "+incomeService.numberOfIncomes());
@@ -60,6 +60,8 @@ public class Main {
                     System.out.println("List expense is selected");
                     System.out.println(expenseService);
                     break;
+                case 5:
+                    System.out.println(incomeService.getIncomesOfGivenDate(LocalDateTime.now()));
                 default:
                     System.out.println("please use numbers between 1 and 4");
                     break;
