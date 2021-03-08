@@ -1,51 +1,48 @@
 package domain;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 
 public class Expense {
-    private String name;
-    private float value;
-    private long expenseDate;
+    private String expenseName;
+    private float expenseValue;
+    private LocalDateTime expenseDate;
 
-    private SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd:HH.mm.ss");
-
-    public Expense(String name, float value, long expenseDate) {
-        this.name = name;
-        this.value = value;
+    public Expense(String expenseName, Float expenseValue, LocalDateTime expenseDate) {
+        this.expenseName = expenseName;
+        this.expenseValue = expenseValue;
         this.expenseDate = expenseDate;
     }
 
-    public String getName() {
-        return name;
+    public String getExpenseName() {
+        return expenseName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setExpenseName(String expenseName) {
+        this.expenseName = expenseName;
     }
 
-    public Float getValue() {
-        return value;
+    public Float getExpenseValue() {
+        return expenseValue;
     }
 
-    public void setValue(float value) {
-        this.value = value;
+    public void setExpenseValue(Float expenseValue) {
+        this.expenseValue = expenseValue;
     }
 
-    public long getExpenseDate() {
+    public LocalDateTime getExpenseDate() {
         return expenseDate;
     }
 
-    public void setExpenseDate(long expenseDate) {
+    public void setExpenseDate(LocalDateTime expenseDate) {
         this.expenseDate = expenseDate;
     }
 
-    @Override
-    public String toString() {
-        return "Expense{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                ", expenseDate=" + dtf.format(new Timestamp(expenseDate)) +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Expense{" +
+//                "name='" + name + '\'' +
+//                ", value=" + value +
+//                ", expenseDate=" + dtf.format(new Timestamp(expenseDate)) +
+//                '}';
+//    }
 }

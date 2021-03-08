@@ -6,15 +6,15 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class IncomeService {
+public class IncomeService implements Service<Income> {
 
     private ArrayList<Income> incomesList = new ArrayList<>();
 
-    public boolean insertIncome(Income value) {
+    public Boolean insert(Income value) {
         return incomesList.add(value);
     }
 
-    public ArrayList<Income> getAllIncomes(){
+    public ArrayList<Income> getData(){
         return incomesList;
     }
     public int numberOfIncomes(){
