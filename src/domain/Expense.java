@@ -1,6 +1,7 @@
 package domain;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Expense {
     private String expenseName;
@@ -37,12 +38,12 @@ public class Expense {
         this.expenseDate = expenseDate;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Expense{" +
-//                "name='" + name + '\'' +
-//                ", value=" + value +
-//                ", expenseDate=" + dtf.format(new Timestamp(expenseDate)) +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "name='" + expenseName + '\'' +
+                ", value=" + expenseValue +
+                ", expenseDate=" + expenseDate.format(DateTimeFormatter.ofPattern("YYYY-MM-dd, HH:mm:ss")) +
+                '}';
+    }
 }
