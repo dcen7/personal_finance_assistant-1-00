@@ -2,6 +2,7 @@ package services;
 
 import domain.Expense;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -31,6 +32,16 @@ public class ExpenseService implements Service<Expense> {
             sum += expense.getExpenseValue();
         }
         return sum;
+    }
+
+    public ArrayList<Expense> getExpensesOfGivenDate(LocalDateTime someDate) {
+        ArrayList<Expense> filteredList = new ArrayList<>();
+        for(Expense expense: expensesList){
+            if(expense.getExpenseDate().getMonth().equals(someDate.getMonth())){
+                filteredList.add(expense);
+            }
+        }
+        return filteredList;
     }
 
     @Override
